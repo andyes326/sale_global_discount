@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models, _
-
+from openerp.tools import float_round, float_is_zero, float_compare
 
 class Invoice_global_discount(models.Model):
 
@@ -11,14 +11,14 @@ class Invoice_global_discount(models.Model):
     _inherit = 'account.invoice'
 
     discount_type = fields.Selection(
-                                     [('percent','Percentage'),
-                                      ('amount','Amount')],
-                                      string = 'Discount Type',
+                                     [('percent','Porcentaje'),
+                                      ('amount','Cantidad')],
+                                      string = 'Tipo de Descuento',
                                       help = 'Select discount type',
-                                      default = 'percent')
-    discount_rate = fields.Float( string = 'Discount Rate', default = '0.0', store = True)
+                                      default = 'amount')
+    discount_rate = fields.Float( string = 'Descuento', default = '0.0', store = True)
 
-    amount_discount = fields.Monetary( string = 'Total Global Discount', compute='_compute_discount', store = True)
+    amount_discount = fields.Monetary( string = 'Total Descuentos', compute='_compute_discount', store = True)
 
 
     @api.one
