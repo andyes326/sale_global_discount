@@ -8,7 +8,7 @@
         Add global discount to sales flow""",
     'version': '10.0.1.0.0',
     'license': 'AGPL-3',
-    'author': 'Faros Inversiones Ltda.',
+    'author': 'Miviltech S.A y Faros Inversiones Ltda.',
     'website': 'www.farosinv.cl',
     'depends': [
         'sale',
